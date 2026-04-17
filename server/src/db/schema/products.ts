@@ -6,6 +6,7 @@ import {
     text,
     jsonb,
     boolean,
+    timestamp,
 } from "drizzle-orm/pg-core";
 import { categories } from "./categories";
 import { brands } from "./brands";
@@ -27,4 +28,10 @@ export const products = pgTable("products", {
 
     images: jsonb("images").$type<string[]>(),
     specifications: jsonb("specifications"),
+
+    rating: integer("rating").default(0),
+    reviewCount: integer("review_count").default(0),
+
+    createdAt: timestamp("created_at").defaultNow(),
+    updatedAt: timestamp("updated_at").defaultNow(),
 });
