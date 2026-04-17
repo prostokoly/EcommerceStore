@@ -7,6 +7,7 @@ import categoryRoutes from "./routes/category.routes";
 import productRoutes from "./routes/product.routes";
 import brandRoutes from "./routes/brand.routes";
 import reviewRoutes from "./routes/review.routes";
+import cartRoutes from "./routes/cart.routes";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/brands", brandRoutes);
 app.use("/api/reviews", reviewRoutes);
+app.use("/api/cart", cartRoutes);
 
 app.listen(ENV.PORT, () => {
     console.log(`🚀 Server running on port ${ENV.PORT}`);
