@@ -1,0 +1,79 @@
+server/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   ├── env.ts                    # Переменные окружения
+│   │   └── database.ts               # Подключение к PostgreSQL
+│   │
+│   ├── db/
+│   │   ├── schema/
+│   │   │   +├── users.ts              # Схема пользователей
+│   │   │   ├── categories.ts         # Схема категорий
+│   │   │   ├── brands.ts             # Схема брендов
+│   │   │   ├── products.ts           # Схема товаров
+│   │   │   ├── reviews.ts            # Схема отзывов
+│   │   │   ├── cart.ts               # Схема корзины
+│   │   │   ├── orders.ts             # Схема заказов
+│   │   │   ├── orderItems.ts         # Схема позиций заказа
+│   │   │   ├── promoCodes.ts         # Схема промокодов
+│   │   │   +└── index.ts              # Экспорт всех схем
+│   │   │
+│   │   └── index.ts                  # Экспорт db instance
+│   │
+│   ├── utils/
+│   │   ├── auth.ts                   # JWT функции (generate, verify)
+│   │   ├── password.ts               # Хэширование паролей
+│   │   ├── AppError.ts               # Класс для ошибок
+│   │   └── catchAsync.ts             # Обертка для async функций
+│   │
+│   ├── middleware/
+│   │   ├── auth.ts                   # Проверка JWT токена
+│   │   ├── errorHandler.ts           # Глобальная обработка ошибок
+│   │   └── validate.ts               # Валидация запросов
+│   │
+│   ├── controllers/
+│   │   ├── auth.controller.ts        # Регистрация, логин
+│   │   ├── user.controller.ts        # Профиль пользователя
+│   │   ├── product.controller.ts     # Товары (CRUD)
+│   │   ├── category.controller.ts    # Категории
+│   │   ├── brand.controller.ts       # Бренды
+│   │   ├── cart.controller.ts        # Корзина
+│   │   ├── order.controller.ts       # Заказы
+│   │   ├── review.controller.ts      # Отзывы
+│   │   └── promoCode.controller.ts   # Промокоды
+│   │
+│   ├── services/
+│   │   ├── auth.service.ts           # Бизнес-логика auth
+│   │   ├── user.service.ts           # Бизнес-логика users
+│   │   ├── product.service.ts        # Бизнес-логика products
+│   │   ├── category.service.ts       # Бизнес-логика categories
+│   │   ├── brand.service.ts          # Бизнес-логика brands
+│   │   ├── cart.service.ts           # Бизнес-логика cart
+│   │   ├── order.service.ts          # Бизнес-логика orders
+│   │   └── review.service.ts         # Бизнес-логика reviews
+│   │
+│   ├── routes/
+│   │   ├── index.ts                  # Подключение всех роутов
+│   │   ├── auth.routes.ts            # Auth маршруты
+│   │   ├── user.routes.ts            # User маршруты
+│   │   ├── product.routes.ts         # Product маршруты
+│   │   ├── category.routes.ts        # Category маршруты
+│   │   ├── brand.routes.ts           # Brand маршруты
+│   │   ├── cart.routes.ts            # Cart маршруты
+│   │   ├── order.routes.ts           # Order маршруты
+│   │   └── review.routes.ts          # Review маршруты
+│   │
+│   ├── types/
+│   │   ├── express.d.ts              # Расширение типов Express
+│   │   └── index.ts                  # Общие типы и интерфейсы
+│   │
+│   └── index.ts                      # Точка входа (Express app)
+│
+├── .env                              # Переменные окружения
+├── .env.example                      # Пример .env
+├── .gitignore                        # Git ignore
+├── package.json                      # Зависимости и скрипты
+├── tsconfig.json                     # TypeScript конфиг
+├── drizzle.config.ts                 # Drizzle ORM конфиг
+└── nodemon.json                      # Nodemon конфиг (опционально)
