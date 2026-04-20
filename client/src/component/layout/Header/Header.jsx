@@ -1,8 +1,10 @@
 import React from "react";
 import style from "./style.module.css";
 import { Link } from "react-router-dom";
+// import { useCart } from "../../../hooks/useCart";
 
 const Header = () => {
+    // const { carItems } = useCart();
     return (
         <header className={style.header}>
             <div className={style.headerContainer}>
@@ -28,7 +30,10 @@ const Header = () => {
                     <Link to="/" className={style.navLink}>
                         Home
                     </Link>
-                    <Link to="/catalog" className={style.navLink}>
+                    <Link
+                        to="/catalog?category=smartfony"
+                        className={style.navLink}
+                    >
                         Catalog
                     </Link>
                     <Link to="/contact" className={style.navLink}>

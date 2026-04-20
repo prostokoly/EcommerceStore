@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../hooks/useCart";
 
 const ProductCard = ({ product }) => {
     const [isLiked, setIsLiked] = useState(false);
+    const [isAdded, setIsAdded] = useState(false);
+    const { addToCart } = useCart();
 
+    const handleAddToCart = () => {
+        addToCart(product);
+        setIsAdded(true);
+
+        setTimeout(() => {
+            setIsAdded(false);
+        }, 2500);
+    };
     const formatPrice = (price) => {
         return new Intl.NumberFormat("ru-RU", {
             style: "currency",
@@ -66,6 +77,14 @@ const ProductCard = ({ product }) => {
                 // onClick={() => }
             >
                 Купить
+            </button>
+
+            <button
+                className={style.buyButton}
+                onClick={handleAddToCart}
+                disabled={isAdded}
+            >
+                {isAdded ? "Добавлено✅" : "Добавить"}
             </button>
         </div>
     );

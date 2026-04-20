@@ -27,7 +27,6 @@ const CategoriesSection = () => {
                             <p className={style.categoryName}>
                                 {category.name}
                             </p>
-                            {console.log(category.id)}
                         </Link>
                     ))}
                 </div>
