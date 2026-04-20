@@ -11,29 +11,35 @@ import ProfilePage from "./pages/ProfilePage";
 
 import Footer from "./component/layout/Footer/Footer";
 import "./App.css";
+import CartProvider from "./context/CartContext/CartContext";
 
 function App() {
     return (
         <>
             <div className="app">
-                <Header />
-                <main className="main">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/auth" element={<LoginPage />} />
-                        <Route path="/catalog" element={<CatalogPage />} />
-                        <Route
-                            path="/product/:slug"
-                            element={<ProductPage />}
-                        />
-                        <Route path="/cart" element={<CartPage />} />
-                        <Route path="/checkout" element={<CheckoutPage />} />
-                        <Route path="/orders" element={<OrdersPage />} />
-                        <Route path="/profile" element={<ProfilePage />} />
-                    </Routes>
-                </main>
+                <CartProvider>
+                    <Header />
+                    <main className="main">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/auth" element={<LoginPage />} />
+                            <Route path="/catalog" element={<CatalogPage />} />
+                            <Route
+                                path="/product/:slug"
+                                element={<ProductPage />}
+                            />
+                            <Route path="/cart" element={<CartPage />} />
+                            <Route
+                                path="/checkout"
+                                element={<CheckoutPage />}
+                            />
+                            <Route path="/orders" element={<OrdersPage />} />
+                            <Route path="/profile" element={<ProfilePage />} />
+                        </Routes>
+                    </main>
 
-                <Footer />
+                    <Footer />
+                </CartProvider>
             </div>
         </>
     );
