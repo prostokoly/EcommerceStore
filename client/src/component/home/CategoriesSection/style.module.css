@@ -1,0 +1,73 @@
+.categoriesSection {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+}
+
+.categoriesSection h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.categoriesGrid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.categoriesGrid::-webkit-scrollbar {
+    display: none;
+}
+
+.categoryCard {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 140px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.categoryCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: #3b82f6;
+}
+
+.categoryImage {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.categoryCard:hover .categoryImage {
+    transform: scale(1.1);
+}
+
+.categoryName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    text-align: center;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.categoryCard:hover .categoryName {
+    color: #1a1a1a;
+}
