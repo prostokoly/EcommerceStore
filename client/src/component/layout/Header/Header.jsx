@@ -28,8 +28,8 @@ const Header = () => {
                     <Link to="/" className={style.navLink}>
                         Home
                     </Link>
-                    <Link to="/about" className={style.navLink}>
-                        About
+                    <Link to="/catalog" className={style.navLink}>
+                        Catalog
                     </Link>
                     <Link to="/contact" className={style.navLink}>
                         Contact Us

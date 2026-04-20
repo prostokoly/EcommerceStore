@@ -30,3 +30,15 @@ export const getProductById = async (slug) => {
         console.log("Ошибка нет товара с таким id", error);
     }
 };
+
+export const getProductCategory = async (category) => {
+    try {
+        const response = await axios.get(
+            `${BASE_URL}/products?category=${category}`,
+            // `${BASE_URL}/products?category=73`,
+        );
+        return response.data;
+    } catch (error) {
+        console.log("Ошибка в получении товаров нужной категории", error);
+    }
+};

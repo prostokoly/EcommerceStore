@@ -61,7 +61,12 @@ const ProductCard = ({ product }) => {
                 )}
             </div>
 
-            <button className={style.buyButton}>Buy Now</button>
+            <button
+                className={style.buyButton}
+                // onClick={() => }
+            >
+                Купить
+            </button>
         </div>
     );
 };
