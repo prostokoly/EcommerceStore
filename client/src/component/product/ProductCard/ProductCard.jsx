@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
                 alt={product.name}
             />
             <h3>{product.name}</h3>
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/${product.slug}`}>
                 <h3 style={{ textDecoration: "none" }}>Посмотреть подробнее</h3>
             </Link>
 

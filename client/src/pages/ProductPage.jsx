@@ -7,19 +7,22 @@ import { getProductById } from "../services/api";
 // import { style } from "./"
 
 const ProductPage = () => {
-    const { id } = useParams();
-    console.log(id);
+    const { slug } = useParams();
 
-    const fetchProduct = useCallback(() => getProductById(id), []);
-    const { product, isLoading } = useFetch(fetchProduct);
-    console.log(product);
+    const fetchProduct = useCallback(() => getProductById(slug), [slug]);
+    const { data, isLoading } = useFetch(fetchProduct);
+
+    // ✅ Проверяем data.product (не productList!)
     if (isLoading) return <p>Загрузка...</p>;
-    if (!product) return <h2>Товар не найден</h2>;
+    if (!data || !data.product) return <h2>Товар не найден</h2>;
+
+    console.log("Товар:", data.product); // Для отладки
+
     return (
         <div>
-            <ProductDetails product={product} />
+            {/* ✅ Передаём data.product */}
+            <ProductDetails product={data.product} />
         </div>
     );
 };
-
 export default ProductPage;

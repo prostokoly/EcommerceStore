@@ -22,9 +22,9 @@ export const getProduct = async (limit = 8) => {
     }
 };
 
-export const getProductById = async (id) => {
+export const getProductById = async (slug) => {
     try {
-        const response = await axios.get(`${BASE_URL}/products/${id}`);
+        const response = await axios.get(`${BASE_URL}/products/${slug}`);
         return response.data;
     } catch (error) {
         console.log("Ошибка нет товара с таким id", error);
