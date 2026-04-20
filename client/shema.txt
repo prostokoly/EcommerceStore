@@ -1,0 +1,84 @@
+src/
+├── components/
+│   ├── ui/          # Кнопки, инпуты
+│   ├── layout/      # Header, Footer, ProtectedRoute
+│   └── ...          # Остальные компоненты
+│
+├── pages/           # Страницы (Home, Catalog, Cart...)
+│
+├── services/        # Работа с API (axios) — НЕ МЕНЯЕТСЯ
+│   ├── api.js
+│   └── ...
+│
+├── context/         # ВМЕСТО store/ (Глобальное состояние)
+│   ├── AuthContext.jsx   # Хранит user, token, login(), logout()
+│   └── CartContext.jsx   # Хранит items, total, addToCart()
+│
+├── hooks/           # Кастомные хуки (Логика)
+│   ├── useFetchProducts.js
+│   └── ...
+│
+└── utils/           # Форматирование, константы
+
+
+
+
+
+
+
+
+
+
+
+
+src/
+├── components/           # Переиспользуемые UI-компоненты
+│   ├── ui/              # Button.jsx, Input.jsx, Modal.jsx, Spinner.jsx
+│   ├── layout/          # Header.jsx, Footer.jsx, ProtectedRoute.jsx
+│   ├── product/         # ProductCard.jsx, ProductList.jsx, ProductFilters.jsx
+│   ├── cart/            # CartItem.jsx, CartSummary.jsx
+│   ├── auth/            # LoginForm.jsx, RegisterForm.jsx
+│   └── order/           # OrderCard.jsx, OrderStatus.jsx
+│
+├── pages/               # Страницы (маршруты)
+│   ├── HomePage.jsx
+│   ├── LoginPage.jsx
+│   ├── RegisterPage.jsx
+│   ├── CatalogPage.jsx
+│   ├── ProductPage.jsx
+│   ├── CartPage.jsx
+│   ├── CheckoutPage.jsx
+│   ├── OrdersPage.jsx
+│   └── ProfilePage.jsx
+│
+├── services/            # Работа с бэкендом
+│   ├── api.js           # Настроенный axios инстанс
+│   ├── auth.service.js
+│   ├── products.service.js
+│   ├── cart.service.js
+│   └── orders.service.js
+│
+├── store/               # Redux хранилище
+│   ├── store.js         # Конфигурация store (combineReducers)
+│   ├── slices/
+│   │   ├── auth.slice.js      # user, token, login/logout actions
+│   │   ├── cart.slice.js      # items, total, add/remove/update actions
+│   │   ├── products.slice.js  # list, filters, pagination, fetch actions
+│   │   └── orders.slice.js    # orders list, current order, create action
+│
+├── hooks/               # Кастомные хуки (опционально)
+│   ├── useAuth.js
+│   ├── useCart.js
+│   └── useProducts.js
+│
+├── utils/               # Вспомогательные функции
+│   ├── formatPrice.js   # Форматирование цены (1 399 ₽)
+│   ├── validators.js    # Валидация форм (email, пароль)
+│   └── constants.js     # Глобальные константы (API_URL, routes)
+│
+├── context/             # (Опционально) для тем, уведомлений
+│   └── ToastContext.jsx
+│
+├── App.jsx              # Настройка роутинга
+├── main.jsx             # Точка входа + Provider
+└── index.css            # Глобальные стили
