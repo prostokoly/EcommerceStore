@@ -28,6 +28,7 @@ const Footer = () => {
                         href="https://github.com/prostokoly"
                         className={style.iconLink}
                     >
+                        <p className={style.contactValue}>GitHub: </p>
                         <img src="/Footer/github.svg" alt="GitHub" />
                     </a>
 
@@ -35,6 +36,8 @@ const Footer = () => {
                         href="https://vk.com/prostokoly"
                         className={style.iconLink}
                     >
+                        <p className={style.contactValue}>Вконтакте: </p>
+
                         <img src="/Footer/vk.svg" alt="vk" />
                     </a>
                 </div>
