@@ -1967,7 +1967,7 @@ const seedDatabase = async () => {
                 rating: 4.4,
                 reviewCount: 87,
             },
-            // // CANON
+            // CANON
             // {
             //     name: "Canon EOS R5",
             //     slug: "canon-eos-r5",
