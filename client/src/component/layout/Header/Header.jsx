@@ -51,7 +51,7 @@ const Header = () => {
                     <Link to="/cart" className={style.iconLink}>
                         <img src="/Header/cart.svg" alt="cart" />
                     </Link>
-                    <Link to="/auth" className={style.iconLink}>
+                    <Link to="/auth/login" className={style.iconLink}>
                         <img src="/Header/person.svg" alt="person" />
                     </Link>
                 </div>
