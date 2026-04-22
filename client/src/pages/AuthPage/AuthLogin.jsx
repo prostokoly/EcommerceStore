@@ -98,15 +98,6 @@ const AuthLogin = () => {
                             Забыли пароль?
                         </Link>
                     </div>
-
-                    {/* <div className={style.socialLogin}>
-                        <span>Или войдите через</span>
-                        <div className={style.socialIcons}>
-                            <button className={style.socialBtn}>G</button>
-                            <button className={style.socialBtn}>f</button>
-                            <button className={style.socialBtn}></button>
-                        </div>
-                    </div> */}
                 </div>
 
                 <div className={style.imageSection}>
