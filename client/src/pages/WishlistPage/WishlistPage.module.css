@@ -1,0 +1,108 @@
+.wishlistPage {
+    min-height: 100vh;
+    background: #f9fafb;
+    padding: 40px 20px;
+}
+
+.wishlistPage h1 {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.wishlistGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wishlistItem {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.wishlistItem:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.removeBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #ef4444;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.removeBtn:hover {
+    background: #ef4444;
+    color: white;
+    transform: scale(1.1);
+}
+
+.removeBtn::before {
+    content: "×"; /* Крестик */
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.emptyWishlist {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.emptyWishlist h1 {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.emptyWishlist p {
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 32px;
+}
+
+.emptyWishlist button {
+    padding: 14px 32px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.emptyWishlist button:hover {
+    background: #1d4ed8;
+}

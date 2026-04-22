@@ -9,45 +9,40 @@ export const OrderController = {
     createOrder: async (req: any, res: Response, next: NextFunction) => {
         try {
             const userId = req.user.userId;
-            const { shippingAddress } = req.body;
+            const { shippingAddress, items } = req.body;
 
-            const cart = await db
-                .select({
-                    id: cartItems.id,
-                    productId: cartItems.productId,
-                    quantity: cartItems.quantity,
-                    product: products,
-                })
-                .from(cartItems)
-                .leftJoin(products, eq(cartItems.productId, products.id))
-                .where(eq(cartItems.userId, userId));
-
-            if (cart.length === 0) {
+            if (!items || items.length === 0) {
                 return res.status(400).json({ message: "Cart is empty" });
             }
 
             let totalAmount = 0;
             const itemsToInsert = [];
 
-            for (const item of cart) {
-                if (!item.product) continue;
-
-                const price = item.product.price;
-                totalAmount += price * item.quantity;
-
+            for (const item of items) {
+                const product = await db.query.products.findFirst({
+                    where: eq(products.id, item.id),
+                });
+                if (!product) {
+                    return res.status(404).json({ message: "Cart is empty" });
+                }
+                const price = product.price || 0;
+                const quantity = item.quantity || 1;
+                totalAmount += price * quantity;
                 itemsToInsert.push({
-                    orderId: 0, // заполним ниже
-                    productId: item.productId,
-                    quantity: item.quantity,
+                    productId: item.id,
+                    quantity: quantity,
                     price: price,
                 });
             }
-
+            if (isNaN(totalAmount)) {
+                totalAmount = 0;
+            }
             const [newOrder] = await db
                 .insert(orders)
                 .values({
                     userId,
-                    totalAmount,
+                    totalAmount: Math.round(totalAmount),
+                    status: "pending",
                     shippingAddress: shippingAddress || "Not specified",
                 })
                 .returning();
@@ -59,11 +54,9 @@ export const OrderController = {
 
             await db.insert(orderItems).values(itemsWithOrderId);
 
-            await db.delete(cartItems).where(eq(cartItems.userId, userId));
-
             res.status(201).json({
                 success: true,
-                message: "Order created",
+                message: "Order created successfully",
                 data: newOrder,
             });
         } catch (err) {

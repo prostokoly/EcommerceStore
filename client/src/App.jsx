@@ -4,10 +4,9 @@ import HomePage from "./pages/HomePage";
 import CatalogPage from "./pages/CatalogPage";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
-import CheckoutPage from "./pages/CheckoutPage";
 import OrdersPage from "./pages/OrdersPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import WishlistPage from "./pages/WishlistPage";
+import WishlistPage from "./pages/WishlistPage/WishlistPage";
 
 import Footer from "./component/layout/Footer/Footer";
 import "./App.css";
@@ -16,6 +15,7 @@ import WishlistProvider from "./context/WishlistContext/WishlistContext";
 import AuthProvider from "./context/AuthContext/AuthContext";
 import AuthLogin from "./pages/AuthPage/AuthLogin";
 import AuthRegister from "./pages/AuthPage/AuthRegister";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
 function App() {
     return (
