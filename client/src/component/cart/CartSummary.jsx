@@ -41,7 +41,7 @@ const CartSummary = ({ total, itemCount }) => {
             </div>
 
             <button className={style.checkoutBtn} onClick={handleCheckout}>
-                Разместить заказ
+                Оформить заказ
             </button>
         </div>
     );

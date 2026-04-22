@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useWishlist } from "../hooks/useWishlist";
+import { useWishlist } from "../../hooks/useWishlist";
 import style from "./WishlistPage.module.css";
-import ProductCard from "../component/product/ProductCard/ProductCard";
+import ProductCard from "../../component/product/ProductCard/ProductCard";
 
 const WishlistPage = () => {
     const navigate = useNavigate();
@@ -31,9 +31,7 @@ const WishlistPage = () => {
                         <button
                             className={style.removeBtn}
                             onClick={() => removeFromWishlist(product.id)}
-                        >
-                            Удалить
-                        </button>
+                        ></button>
                     </div>
                 ))}
             </div>
