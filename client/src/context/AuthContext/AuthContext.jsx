@@ -55,13 +55,25 @@ const AuthProvider = ({ children }) => {
     };
 
     const signUpUser = async (userData) => {
-        const response = await register(userData);
-        const { token, user } = response.data;
+        try {
+            const response = await register(userData);
 
-        localStorage.setItem("authToken", response.token);
-        setToken(token);
-        setUser(user);
-        return response;
+            const token = response.data?.token || response.token;
+            const user = response.data?.user || response.user;
+
+            if (!token) {
+                throw new Error("Сервер не вернул токен! ");
+            }
+
+            localStorage.setItem("authToken", token);
+            setToken(token);
+            setUser(user);
+
+            return response;
+        } catch (error) {
+            alert("Ошибка регистрации: " + error.message);
+            throw error;
+        }
     };
     const signOutUser = async () => {
         localStorage.removeItem("authToken");
