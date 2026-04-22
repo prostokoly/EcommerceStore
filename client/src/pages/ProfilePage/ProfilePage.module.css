@@ -1,0 +1,145 @@
+.profilePage {
+    min-height: 100vh;
+    background: #f3f4f6;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.profileCard {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.userInfo h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 8px 0;
+}
+
+.email {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.ordersSection {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 10px;
+}
+
+.ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.orderItem {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+    background: #fff;
+}
+
+.orderItem:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.orderDate {
+    color: #6b7280;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.orderStatus {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+.orderAddress {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.orderTotal {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+.logoutBtn {
+    padding: 14px 32px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+    background: #fecaca;
+}

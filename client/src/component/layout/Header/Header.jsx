@@ -1,8 +1,20 @@
 import React from "react";
 import style from "./style.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth";
+// import { useCart } from "../../../hooks/useCart";
 
 const Header = () => {
+    // const { carItems } = useCart();
+    const navigate = useNavigate();
+    const { user, signOutUser } = useAuth();
+    const handleProfileClick = () => {
+        if (user) {
+            navigate("/profile");
+        } else {
+            navigate("/auth/login");
+        }
+    };
     return (
         <header className={style.header}>
             <div className={style.headerContainer}>
@@ -28,8 +40,11 @@ const Header = () => {
                     <Link to="/" className={style.navLink}>
                         Home
                     </Link>
-                    <Link to="/about" className={style.navLink}>
-                        About
+                    <Link
+                        to="/catalog?category=smartfony"
+                        className={style.navLink}
+                    >
+                        Catalog
                     </Link>
                     <Link to="/contact" className={style.navLink}>
                         Contact Us
@@ -46,9 +61,18 @@ const Header = () => {
                     <Link to="/cart" className={style.iconLink}>
                         <img src="/Header/cart.svg" alt="cart" />
                     </Link>
-                    <Link to="/auth" className={style.iconLink}>
+                    <button
+                        onClick={handleProfileClick}
+                        className={style.iconLink}
+                        style={{
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            fontSize: "20px",
+                        }}
+                    >
                         <img src="/Header/person.svg" alt="person" />
-                    </Link>
+                    </button>
                 </div>
             </div>
         </header>

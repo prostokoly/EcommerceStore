@@ -4,22 +4,20 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import ProductDetails from "../component/product/ProductDetails/ProductDetails";
 import { getProductById } from "../services/api";
-// import { style } from "./"
 
 const ProductPage = () => {
-    const { id } = useParams();
-    console.log(id);
+    const { slug } = useParams();
 
-    const fetchProduct = useCallback(() => getProductById(id), []);
-    const { product, isLoading } = useFetch(fetchProduct);
-    console.log(product);
+    const fetchProduct = useCallback(() => getProductById(slug), [slug]);
+    const { data, isLoading } = useFetch(fetchProduct);
+
     if (isLoading) return <p>Загрузка...</p>;
-    if (!product) return <h2>Товар не найден</h2>;
+    if (!data || !data.product) return <h2>Товар не найден</h2>;
+
     return (
         <div>
-            <ProductDetails product={product} />
+            <ProductDetails product={data.product} />
         </div>
     );
 };
-
 export default ProductPage;

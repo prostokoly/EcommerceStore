@@ -1,10 +1,29 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../hooks/useCart";
+import { useWishlist } from "../../../hooks/useWishlist";
 
 const ProductCard = ({ product }) => {
-    const [isLiked, setIsLiked] = useState(false);
+    // const [isLiked, setIsLiked] = useState(false);
+    const [isAdded, setIsAdded] = useState(false);
+    const { addToCart } = useCart();
+    const { addToWishlist, isInWishlist } = useWishlist();
 
+    const isLiked = isInWishlist(product.id);
+
+    const handleAddToWishlist = () => {
+        // setIsLiked(!isLiked);
+        addToWishlist(product);
+    };
+    const handleAddToCart = () => {
+        addToCart(product);
+        setIsAdded(true);
+
+        setTimeout(() => {
+            setIsAdded(false);
+        }, 2500);
+    };
     const formatPrice = (price) => {
         return new Intl.NumberFormat("ru-RU", {
             style: "currency",
@@ -27,18 +46,9 @@ const ProductCard = ({ product }) => {
 
             <button
                 className={`${style.wishlistButton} ${isLiked ? style.active : ""}`}
-                onClick={() => setIsLiked(!isLiked)}
+                onClick={handleAddToWishlist}
             >
-                <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill={isLiked ? "#ef4444" : "none"}
-                    stroke="currentColor"
-                    strokeWidth="2"
-                >
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
+                {isLiked ? "❤️" : "🤍"}
             </button>
 
             <img
@@ -46,7 +56,7 @@ const ProductCard = ({ product }) => {
                 alt={product.name}
             />
             <h3>{product.name}</h3>
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/${product.slug}`}>
                 <h3 style={{ textDecoration: "none" }}>Посмотреть подробнее</h3>
             </Link>
 
@@ -61,7 +71,20 @@ const ProductCard = ({ product }) => {
                 )}
             </div>
 
-            <button className={style.buyButton}>Buy Now</button>
+            <button
+                className={style.buyButton}
+                // onClick={() => }
+            >
+                Купить
+            </button>
+
+            <button
+                className={style.buyButton}
+                onClick={handleAddToCart}
+                disabled={isAdded}
+            >
+                {isAdded ? "Добавлено✅" : "Добавить"}
+            </button>
         </div>
     );
 };

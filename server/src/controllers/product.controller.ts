@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { db } from "../config/database";
 import { products } from "../db/schema/products";
 import { eq, and, desc, sql } from "drizzle-orm";
+import { categories } from "../db";
 
 export const ProductController = {
     // Получить все товары (с фильтрами и пагинацией)
@@ -23,7 +24,31 @@ export const ProductController = {
             const conditions = [];
 
             if (category) {
-                conditions.push(eq(products.categoryId, Number(category)));
+                const isId = !isNaN(Number(category));
+
+                if (isId) {
+                    conditions.push(eq(products.categoryId, Number(category)));
+                } else {
+                    const foundCategory = await db.query.categories.findFirst({
+                        where: eq(categories.slug, category as string),
+                        columns: { id: true }, // Нам нужен только id
+                    });
+
+                    if (foundCategory) {
+                        conditions.push(
+                            eq(products.categoryId, foundCategory.id),
+                        );
+                    } else {
+                        return res.json({
+                            success: true,
+                            count: 0,
+                            total: "0",
+                            page: 1,
+                            pages: 0,
+                            productList: [],
+                        });
+                    }
+                }
             }
 
             if (brand) {
