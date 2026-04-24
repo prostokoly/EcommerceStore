@@ -13,7 +13,7 @@ const WishlistPage = () => {
             <div className={style.emptyWishlist}>
                 <h1>Избранное</h1>
                 <p>У вас пока нет избранных товаров</p>
-                <button onClick={() => navigate("/catalog")}>
+                <button onClick={() => navigate("/catalog?category=smartfony")}>
                     Перейти в каталог
                 </button>
             </div>
