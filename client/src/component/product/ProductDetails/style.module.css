@@ -1,258 +1,166 @@
-.detailsContainer {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.productPage {
+    min-height: 100vh;
+    background: #ffffff;
+    padding: 60px 20px;
 }
 
-.detailsWrapper {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.2fr 1fr; /* Левая колонка чуть шире */
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: start;
 }
 
-/* --- ГАЛЕРЕЯ --- */
-.gallerySection {
+.imageSection {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
-.thumbnails {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.thumb {
-    width: 70px;
-    height: 70px;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    background: #fff;
-    padding: 4px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.thumb:hover,
-.activeThumb {
-    border-color: #000;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-}
-
-.thumb img {
+.mainImageWrapper {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.mainImage {
-    flex: 1;
-    background: #f8f8f8; /* Светлый фон под фото */
-    border-radius: 16px;
-    padding: 40px;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    background: #f9fafb;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.mainImage img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+.mainImage {
+    width: 90%;
+    height: 90%;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* --- ИНФОРМАЦИЯ --- */
-.title {
-    font-size: 28px;
+.mainImage:hover {
+    transform: scale(1.05);
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.productTitle {
+    font-size: 36px;
     font-weight: 700;
-    color: #111;
-    margin-bottom: 16px;
+    color: #111827;
+    line-height: 1.2;
+    margin: 0;
 }
 
 .priceBlock {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 16px;
 }
 
 .currentPrice {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
-    color: #111;
+    color: #2563eb;
 }
 
 .oldPrice {
-    font-size: 16px;
-    color: #888;
+    font-size: 20px;
+    color: #9ca3af;
     text-decoration: line-through;
 }
 
-.options {
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.colors {
-    display: flex;
-    gap: 10px;
-}
-
-.colorCircle {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    cursor: pointer;
-}
-.black {
-    background: #000;
-}
-.purple {
-    background: #5856d6;
-}
-.red {
-    background: #ff0000;
-}
-.yellow {
-    background: #ffd700;
-}
-
-.storageOptions {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.storageBtn {
-    padding: 10px 20px;
-    border: 1px solid #e5e7eb;
-    background: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    color: #666;
-}
-
-.activeStorage {
-    background: #fff;
-    border: 2px solid #000;
-    color: #000;
-    font-weight: 600;
-}
-
-/* --- ХАРАКТЕРИСТИКИ (GRID) --- */
-.specsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.specItem {
-    background: #f3f4f6;
-    padding: 12px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-}
-
-.specIcon {
-    font-size: 18px;
-}
-
-.specLabel {
-    color: #888;
-    margin: 0;
-    font-size: 11px;
-}
-
-.specValue {
-    font-weight: 600;
-    margin: 0;
-}
-
 .description {
-    color: #555;
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 30px;
-    font-size: 14px;
+    color: #4b5563;
+    margin: 0;
 }
 
-.readMore {
-    color: #000;
-    text-decoration: underline;
+.specsSection {
+    margin-top: 20px;
 }
 
-/* --- КНОПКИ --- */
+.specsTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.specsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.specsList li {
+    font-size: 15px;
+    color: #374151;
+    padding: 8px 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border-left: 3px solid #2563eb;
+}
+
+.specsList li strong {
+    color: #111827;
+}
 .actions {
     display: flex;
     gap: 16px;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-.btnWishlist,
-.btnCart {
-    flex: 1;
-    padding: 16px;
-    border-radius: 8px;
+.addToCartBtn,
+.wishlistBtn {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.btnWishlist {
-    background: #fff;
-    border: 2px solid #111;
-    color: #111;
-}
-
-.btnWishlist:hover {
-    background: #f3f4f6;
-}
-
-.btnCart {
-    background: #111;
-    border: 2px solid #111;
-    color: #fff;
-}
-
-.btnCart:hover {
-    opacity: 0.8;
-}
-
-/* --- ГАРАНТИИ --- */
-.guarantees {
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-.guaranteeItem {
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 13px;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
 }
 
-.guaranteeItem span {
-    font-size: 20px;
+.addToCartBtn img,
+.wishlistBtn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    pointer-events: none;
 }
 
-.guaranteeItem p {
-    margin: 0;
-    color: #666;
-    font-size: 11px;
+.addToCartBtn {
+    background: white;
+    /* color: white; */
 }
 
-.guaranteeItem strong {
-    font-size: 13px;
+.addToCartBtn:hover {
+    /* background: #1d4ed8; */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.wishlistBtn {
+    background: white;
+    /* border: 2px solid #ef4444; */
+}
+
+.wishlistBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }

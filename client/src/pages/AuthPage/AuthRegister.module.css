@@ -157,8 +157,8 @@
     min-height: 100%;
 }
 .imageSection img {
-    max-width: 95%;
-    max-height: 95%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
     animation: float 6s ease-in-out infinite;
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
