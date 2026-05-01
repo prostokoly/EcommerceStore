@@ -98,7 +98,6 @@ const ProfilePage = () => {
                     )}
                 </div>
 
-                {/* Кнопка выхода */}
                 <div className={style.actions}>
                     <button className={style.logoutBtn} onClick={handleLogout}>
                         Выйти из аккаунта
