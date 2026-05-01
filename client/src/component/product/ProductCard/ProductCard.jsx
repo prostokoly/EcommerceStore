@@ -83,7 +83,7 @@ const ProductCard = ({ product }) => {
                 onClick={handleAddToCart}
                 disabled={isAdded}
             >
-                {isAdded ? "Добавлено✅" : "Добавить"}
+                {isAdded ? "Добавлено" : "Добавить"}
             </button>
         </div>
     );
