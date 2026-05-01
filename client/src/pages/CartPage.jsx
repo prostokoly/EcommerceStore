@@ -47,7 +47,6 @@ const CartPage = () => {
                 <h1 className={style.pageTitle}>Оформление заказа</h1>
 
                 <div className={style.cartLayout}>
-                    {/* Левая колонка - товары */}
                     <div className={style.cartItems}>
                         <h2 className={style.sectionTitle}>
                             Сводка заказа ({itemCount} товаров)
@@ -70,7 +69,6 @@ const CartPage = () => {
                         </button>
                     </div>
 
-                    {/* Правая колонка - итог */}
                     <CartSummary total={total} itemCount={itemCount} />
                 </div>
             </div>

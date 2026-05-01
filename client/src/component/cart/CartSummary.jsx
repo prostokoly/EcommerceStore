@@ -5,9 +5,8 @@ import style from "./cartPage.module.css";
 const CartSummary = ({ total, itemCount }) => {
     const navigate = useNavigate();
 
-    // Рассчитываем доставку (бесплатно от 10000₽)
     const shipping = total > 10000 ? 0 : 290;
-    const tax = total * 0.02; // 2% налог
+    const tax = total * 0.02;
     const finalTotal = total + shipping + tax;
 
     const handleCheckout = () => {
