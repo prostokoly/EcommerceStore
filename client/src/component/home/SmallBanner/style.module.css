@@ -1,142 +1,181 @@
-.footer {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: "Golos Text", system-ui, sans-serif;
-    margin-top: auto;
-    padding: 16px 160px 16px 160px;
-}
-
-.footerContainer {
-    max-width: 1280px;
+.bannersWrapper {
+    max-width: 1200px;
     margin: 0 auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
+    padding: 0 20px;
 }
 
-.footerInfo {
-    display: flex;
-    flex-direction: column;
+.topBanners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
-    min-width: 280px;
+    margin-bottom: 16px;
 }
 
-.footerTitle {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0;
-    color: #ffffff;
-    letter-spacing: -0.5px;
+.topBanner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #f5f5f7;
+    min-height: 380px;
 }
 
-.footerText {
-    font-size: 14px;
-    color: #888888;
-    margin: 0;
-}
-
-.contactBlock {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.contactLabel {
-    font-size: 12px;
-    color: #666666;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.contactValue,
-.contactLink {
-    font-size: 15px;
-    color: #ffffff;
-    margin: 0;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.contactLink:hover {
-    color: #22c55e;
-}
-
-.footerSocial {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-end;
-    text-align: right;
-}
-
-.socialLabel {
-    font-size: 12px;
-    color: #666666;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.actions {
+.topBannerInner {
     display: flex;
     align-items: center;
-    gap: 16px;
+    height: 100%;
+    padding: 40px;
+    min-height: 380px;
 }
 
-.iconLink {
+.bannerImage {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    opacity: 0.7;
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
 }
 
-.iconLink:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-}
-
-.iconLink img {
-    width: 24px;
-    height: 24px;
+.bannerImage img {
+    max-width: 100%;
+    height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
 }
 
-.footerBottom {
-    border-top: 1px solid #222222;
-    padding: 16px 40px;
-    text-align: center;
+.bannerText {
+    flex: 1;
+    padding-left: 20px;
 }
 
-.footerBottom p {
-    font-size: 12px;
-    color: #555555;
-    margin: 0;
+.bannerTitle {
+    font-size: 32px;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
 }
 
-@media (max-width: 768px) {
-    .footerContainer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 30px 20px 10px;
-    }
+.bannerDesc {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+    max-width: 280px;
+}
 
-    .footerSocial {
-        align-items: center;
-        text-align: center;
-    }
+.bannerBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #1d1d1f;
+    border: 1.5px solid #1d1d1f;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-    .footerBottom {
-        padding: 16px 20px;
-    }
+.bannerBtn:hover {
+    background-color: #1d1d1f;
+    color: #fff;
+}
+.bottomBanners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    position: relative;
+}
+
+.bottomBanner {
+    position: relative;
+    border-radius: 12px;
+    background-color: #1d1d1f;
+    min-height: 380px;
+}
+
+.bottomBannerInner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-height: 380px;
+    padding: 0 40px;
+    overflow: visible;
+}
+.bottomText {
+    position: relative;
+    z-index: 2;
+    max-width: 240px;
+}
+
+.bottomTitle {
+    font-size: 28px;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+}
+
+.bottomDesc {
+    font-size: 13px;
+    color: #a1a1a6;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+.bottomBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1.5px solid #ffffff;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bottomBtn:hover {
+    background-color: #ffffff;
+    color: #1d1d1f;
+}
+
+.bottomBanner:nth-child(1) .bottomImage {
+    position: absolute;
+    z-index: 1;
+    width: 25%;
+    height: 100%;
+    left: 0%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    pointer-events: none;
+}
+
+.bottomBanner:nth-child(2) .bottomImage {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    left: 0%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    pointer-events: none;
+}
+
+.bottomImage img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom left;
+}
+
+.bottomBanner:nth-child(2) .bottomImage img {
+    object-position: bottom left;
 }
