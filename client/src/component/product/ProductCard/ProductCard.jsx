@@ -3,6 +3,7 @@ import style from "./style.module.css";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../hooks/useCart";
 import { useWishlist } from "../../../hooks/useWishlist";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
     // const [isLiked, setIsLiked] = useState(false);
@@ -15,6 +16,15 @@ const ProductCard = ({ product }) => {
     const handleAddToWishlist = () => {
         // setIsLiked(!isLiked);
         addToWishlist(product);
+        toast.success("Товар добавлен в избранное!", {
+            icon: "❤️",
+            duration: 2000,
+            position: "top-right",
+            style: {
+                background: "#ef4444",
+                color: "#fff",
+            },
+        });
     };
     const handleAddToCart = () => {
         addToCart(product);
@@ -23,6 +33,14 @@ const ProductCard = ({ product }) => {
         setTimeout(() => {
             setIsAdded(false);
         }, 2500);
+        toast.success(`Товар "${product.name}" добавлен в корзину!`, {
+            duration: 3000,
+            position: "top-right",
+            style: {
+                background: "#212322",
+                color: "#fff",
+            },
+        });
     };
     const formatPrice = (price) => {
         return new Intl.NumberFormat("ru-RU", {
